@@ -16,7 +16,21 @@ pipeline {
 		stage("Paso 1") {
 			steps {
 				script {
-					sh "echo 'Hola Mundo!'"
+					sh "echo 'Hola Mundo 1!'"
+				}
+			}
+		}
+		stage("Paso 2") {
+			steps {
+				script {
+					sh "echo 'Hola Mundo 2!'"
+				}
+			}
+		}
+		stage("Paso 3") {
+			steps {
+				script {
+					sh "echo 'Hola Mundo 3!'"
 				}
 			}
 		}
