@@ -6,7 +6,7 @@ def jsonParse(def json) {
 
 pipeline {
 	agent {
-		label 'Built-In Node'
+		label 'Master'
 	}
 	environment {
 		appName = "variable"
