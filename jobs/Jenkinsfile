@@ -10,8 +10,8 @@ pipeline {
 	}
 
 	stages {
-		agent {	label 'Falcon' }
 		stage("Paso 1") {
+			agent {	label 'Falcon' }
 			steps {
 				script {
 					sh "echo 'Hola Mundo 1!'"
@@ -19,14 +19,15 @@ pipeline {
 			}
 		}
 		stage("Paso 2") {
+			agent {	label 'Falcon' }
 			steps {
 				script {
 					sh "echo 'Hola Mundo 2!'"
 				}
 			}
 		}
-		agent {	label 'Container' }
 		stage("Paso 3") {
+			agent {	label 'Container' }
 			steps {
 				script {
 					sh "echo 'Hola Mundo 3!'"
