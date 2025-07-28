@@ -38,18 +38,28 @@ pipeline {
 	}
 	post {
 		always {
-			node ('Falcon Container') {
+			node ('Falcon') {
+				deleteDir()
+				sh "echo 'Fase always'"
+			}
+			node ('Container') {
 				deleteDir()
 				sh "echo 'Fase always'"
 			}
 		}
 		success {
-			node ('Falcon Container') {
+			node ('Falcon') {
+				sh "echo 'Fase Success'"
+			}
+			node ('Container') {
 				sh "echo 'Fase Success'"
 			}
 		}
 		failure {
-			node ('Falcon Container') {
+			node ('Falcon') {
+				sh "echo 'Fase Failure'"
+			}
+			node ('Container') {
 				sh "echo 'Fase Failure'"
 			}
 		}
