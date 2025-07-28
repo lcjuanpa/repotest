@@ -37,16 +37,21 @@ pipeline {
 		}
 	}
 	post {
-		agent { label 'Falcon Container' }
 		always {
-			deleteDir()
-			sh "echo 'Fase always'"
+			node ('Falcon Container') {
+				deleteDir()
+				sh "echo 'Fase always'"
+			}
 		}
 		success {
-			sh "echo 'Fase Success'"
+			node ('Falcon Container') {
+				sh "echo 'Fase Success'"
+			}
 		}
 		failure {
-			sh "echo 'Fase Failure'"
+			node ('Falcon Container') {
+				sh "echo 'Fase Failure'"
+			}
 		}
 	}
 }
