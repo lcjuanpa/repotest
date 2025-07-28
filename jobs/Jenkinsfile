@@ -11,27 +11,29 @@ pipeline {
 	}
 
 	stages {
-		stage("Paso 1 on Agent Falcon") {
-			agent { label 'Falcon' }
-			steps {
-				script {
-					sh "echo 'Hola Mundo 1!'"
+		node ('Falcon') {
+			stage("Paso 1 on Agent Falcon") {
+				steps {
+					script {
+						sh "echo 'Hola Mundo 1!'"
+					}
+				}
+			}
+			stage("Paso 2 on Agent Falcon") {
+				steps {
+					script {
+						sh "echo 'Hola Mundo 2!'"
+					}
 				}
 			}
 		}
-		stage("Paso 2 on Agent Falcon") {
-			agent { label 'Falcon' }
-			steps {
-				script {
-					sh "echo 'Hola Mundo 2!'"
-				}
-			}
-		}
-		stage("Paso 3 on Agent Container") {
-			agent { label 'Container' }
-			steps {
-				script {
-					sh "echo 'Hola Mundo 3!'"
+		node ('Container') {
+			stage("Paso 3 on Agent Container") {
+				agent { label 'Container' }
+				steps {
+					script {
+						sh "echo 'Hola Mundo 3!'"
+					}
 				}
 			}
 		}
