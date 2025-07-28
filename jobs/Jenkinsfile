@@ -5,14 +5,12 @@ def jsonParse(def json) {
 }
 
 pipeline {
-	agent {
-		label 'Master'
-	}
 	environment {
 		appName = "variable"
 	}
 
 	stages {
+		agent {	label 'Falcon' }
 		stage("Paso 1") {
 			steps {
 				script {
@@ -27,6 +25,7 @@ pipeline {
 				}
 			}
 		}
+		agent {	label 'Container' }
 		stage("Paso 3") {
 			steps {
 				script {
