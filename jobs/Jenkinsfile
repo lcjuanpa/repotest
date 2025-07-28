@@ -5,7 +5,7 @@ def jsonParse(def json) {
 }
 
 pipeline {
-	agent any
+	agent one
 	environment {
 		appName = "variable"
 	}
@@ -37,6 +37,7 @@ pipeline {
 		}
 	}
 	post {
+		agent { label 'Falcon Container' }
 		always {
 			deleteDir()
 			sh "echo 'Fase always'"
